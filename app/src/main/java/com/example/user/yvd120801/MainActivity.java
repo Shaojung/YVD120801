@@ -36,7 +36,8 @@ public class MainActivity extends AppCompatActivity {
         String SName = ed1.getText().toString();
         String tel = ed2.getText().toString();
         String addr = ed3.getText().toString();
-        String sql = "insert into phone (SName, tel, addr) values ('" + SName + "','" + tel + "','" + addr + "')";
+        String sql = String.format("insert into phone (SName, tel, addr) values ('%s','%s','%s')", SName, tel, addr);
+        Log.d("DB_SQL", sql);
         db.execSQL(sql);
         db.close();
     }
